@@ -2,10 +2,16 @@
 //
 
 #include <iostream>
-
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+int main() {
+	string name, address, phoneNumber;
+	name = "Lam Le";
+	address = "318 Fort Worth St";
+	phoneNumber = "757-324-0888";
+	cout << name << endl;
+	cout << address << endl;
+	cout << phoneNumber << endl;
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
