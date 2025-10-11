@@ -38,4 +38,14 @@ std::string getComputerChoice(std::random_device& random) {
 
 }
 
+std::string determineWinner(const std::string& player, const std::string& computer) {
+	if (player == computer)
+		return "draw";
+	else if ((player == "rock" && computer == "scissors") ||
+		(player == "scissors" && computer == "paper") ||
+		(player == "paper" && computer == "rock"))
+		return "player";
+	else return "computer"
+}
+
 
