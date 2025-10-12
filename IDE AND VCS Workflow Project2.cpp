@@ -7,19 +7,19 @@
 #include <random>
 using namespace std;
 string getplayerchoice();
-string getComputerChoice(random_device& myEngine);
+string getComputerChoice(random_device& Random);
 string determineWinner(const string& player, const string& computer);
 void updateScores(const string& winner, int& playerScore, int& computerScore);
 void displayFinalResults(int playerScore, int computerScore);
 
 int main() {
-	random_device myEngine;
+	random_device Random;
 	int playerScore = 0;
 	int computerScore = 0;
 	cout << "Welcome to Rock, Paper, Scissors!" << endl;
 	while (true) {
 		string playerChoice = getplayerchoice();
-		string computerChoice = getComputerChoice(myEngine);
+		string computerChoice = getComputerChoice(Random);
 		cout << "Computer chose: " << computerChoice << endl;
 		string winner = determineWinner(playerChoice, computerChoice);
 		if (winner == "draw") cout << "It's a draw!" << endl;
