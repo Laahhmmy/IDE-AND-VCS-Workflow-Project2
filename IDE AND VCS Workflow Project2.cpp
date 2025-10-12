@@ -6,75 +6,75 @@
 #include <string>
 #include <random>
 using namespace std;
-string getplayerchoice();
-string getComputerChoice(random_device& Random);
-string determineWinner(const string& player, const string& computer);
-void updateScores(const string& winner, int& playerScore, int& computerScore);
-void displayFinalResults(int playerScore, int computerScore);
+string getplayerchoice(); // Function to get player's choice
+string getComputerChoice(random_device& Random); // Function to get computer's random choice
+string determineWinner(const string& player, const string& computer); // Function to determine the winner of a round
+void updateScores(const string& winner, int& playerScore, int& computerScore); // Function to update scores based on the winner
+void displayFinalResults(int playerScore, int computerScore); // Function to display final results
 
 int main() {
-	random_device Random;
-	int playerScore = 0;
-	int computerScore = 0;
-	cout << "Welcome to Rock, Paper, Scissors!" << endl;
-	while (true) {
-		string playerChoice = getplayerchoice();
-		string computerChoice = getComputerChoice(Random);
-		cout << "Computer chose: " << computerChoice << endl;
-		string winner = determineWinner(playerChoice, computerChoice);
-		if (winner == "draw") cout << "It's a draw!" << endl;
-		else if (winner == "player") cout << "You win this round!" << endl;
-		else cout << "Computer wins this round!" << endl;
-		updateScores(winner, playerScore, computerScore);
-		cout << "Current Scores - Player: " << playerScore << " Computer: " << computerScore << endl;
-		cout << "Do you want to play again? (yes/no): " << endl;
-		string playAgain;
-		cin >> playAgain;
-		if (playAgain != "yes") break;
+	random_device Random; // Random number generator for computer's choice
+	int playerScore = 0; // Player's score
+	int computerScore = 0; // Computer's score
+	cout << "Welcome to Rock, Paper, Scissors!" << endl; // Welcome message
+	while (true) { // Main game loop
+		string playerChoice = getplayerchoice(); //	 Get player's choice
+		string computerChoice = getComputerChoice(Random); // Get computer's choice
+		cout << "Computer chose: " << computerChoice << endl; // Display computer's choice
+		string winner = determineWinner(playerChoice, computerChoice); // Determine the winner
+		if (winner == "draw") cout << "It's a draw!" << endl; // Draw message
+		else if (winner == "player") cout << "You win this round!" << endl; // Player win message
+		else cout << "Computer wins this round!" << endl; // Computer win message
+		updateScores(winner, playerScore, computerScore); // Update scores
+		cout << "Current Scores - Player: " << playerScore << " Computer: " << computerScore << endl; // Display current scores
+		cout << "Do you want to play again? (yes/no): " << endl; // Prompt to play again
+		string playAgain; // Get player's response
+		cin >> playAgain; // Input response
+		if (playAgain != "yes") break; // Exit loop if not playing again
 
 	}
-	displayFinalResults(playerScore, computerScore);
-	return 0;
+	displayFinalResults(playerScore, computerScore); // Display final results
+	return 0; // End of program
 }
 string getplayerchoice() {
 	string choice;
 	while (true) {
-		cout << "Enter your choice (rock, paper, scissors): ";
-		cin >> choice;
-		if (choice == "rock" || choice == "paper" || choice == "scissors") {
+		cout << "Enter your choice (rock, paper, scissors): "; // Prompt for player's choice
+		cin >> choice; // Input player's choice
+		if (choice == "rock" || choice == "paper" || choice == "scissors") { // Validate choice
 			return choice;
 		}
 		else {
-			cout << "Invalid choice. Please try again." << endl;
+			cout << "Invalid choice. Please try again." << endl; // Error message for invalid choice
 		}
 	}
 }
 string getComputerChoice(random_device& random) {
-	uniform_int_distribution<int> randomInt(1, 3);
-	int randomNumber = randomInt(random);
-	if (randomNumber == 1) return "rock";
-	if (randomNumber == 2) return "paper";
-	else return "scissors";
+	uniform_int_distribution<int> randomInt(1, 3); // Random integer between 1 and 3
+	int randomNumber = randomInt(random); // Generate random number
+	if (randomNumber == 1) return "rock"; // Return rock for 1
+	if (randomNumber == 2) return "paper"; // Return paper for 2
+	else return "scissors"; // Return scissors for 3
 
 }
 
 string determineWinner(const string& player, const string& computer) {
-	if (player == computer)
-		return "draw";
-	else if ((player == "rock" && computer == "scissors") ||
+	if (player == computer) // Check for draw
+		return "draw"; // Return draw if choices are the same
+	else if ((player == "rock" && computer == "scissors") || 
 		(player == "scissors" && computer == "paper") ||
-		(player == "paper" && computer == "rock"))
-		return "player";
-	else return "computer";
+		(player == "paper" && computer == "rock")) // Check for player win conditions
+		return "player"; // Return player if player wins
+	else return "computer"; // Return computer if computer wins
 }
 void updateScores(const string& winner, int& playerScore, int& computerScore) {
-		if (winner == "player") playerScore++;
-		else if (winner == "computer") computerScore++;
+	if (winner == "player") playerScore++; // Increment player score if player wins
+	else if (winner == "computer") computerScore++; // Increment computer score if computer wins
 }
 void displayFinalResults(int playerScore, int computerScore) {
 	cout << "Final Scores" << endl;
-	cout << "Player: " << playerScore << endl << "Computer: " << computerScore << endl;
-	if (playerScore > computerScore) cout << "You win the game!" << endl;
-	else if (computerScore > playerScore) cout << "Computer wins the game!" << endl;
-	else cout << "The game is a draw!" << endl;
+	cout << "Player: " << playerScore << endl << "Computer: " << computerScore << endl; // Display final scores
+	if (playerScore > computerScore) cout << "You win the game!" << endl; // Player win message
+	else if (computerScore > playerScore) cout << "Computer wins the game!" << endl; // Computer win message
+	else cout << "The game is a draw!" << endl; // Draw message
 }
