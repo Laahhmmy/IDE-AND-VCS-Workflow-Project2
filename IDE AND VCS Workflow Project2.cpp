@@ -1,6 +1,6 @@
 // IDE AND VCS Workflow Project2.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
+// In this program, we will create a simple console-based Rock, Paper, Scissors game where a player can play against the computer.
 #include <iostream>
 #include <vector>
 #include <string>
