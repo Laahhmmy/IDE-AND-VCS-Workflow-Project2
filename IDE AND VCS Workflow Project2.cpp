@@ -5,13 +5,13 @@
 #include <vector>
 #include <string>
 #include <random>
-
+using namespace std;
 string getplayerchoice();
 string getComputerChoice(random_device& myEngine);
 string determineWinner(const string& player, const string& computer);
 void updateScores(const string& winner, int& playerScore, int& computerScore);
 void displayFinalResults(int playerScore, int computerScore);
-using namespace std;
+
 int main() {
 	random_device myEngine;
 	int playerScore = 0;
@@ -27,7 +27,7 @@ int main() {
 		else cout << "Computer wins this round!" << endl;
 		updateScores(winner, playerScore, computerScore);
 		cout << "Current Scores - Player: " << playerScore << " Computer: " << computerScore << endl;
-		cout << "Do you want to play again? (yes/no): ";
+		cout << "Do you want to play again? (yes/no): " << endl;
 		string playAgain;
 		cin >> playAgain;
 		if (playAgain != "yes") break;
@@ -73,7 +73,7 @@ void updateScores(const string& winner, int& playerScore, int& computerScore) {
 }
 void displayFinalResults(int playerScore, int computerScore) {
 	cout << "Final Scores" << endl;
-	cout << "Player: " << playerScore << endl << " Computer: " << computerScore << endl;
+	cout << "Player: " << playerScore << endl << "Computer: " << computerScore << endl;
 	if (playerScore > computerScore) cout << "You win the game!" << endl;
 	else if (computerScore > playerScore) cout << "Computer wins the game!" << endl;
 	else cout << "The game is a draw!" << endl;
