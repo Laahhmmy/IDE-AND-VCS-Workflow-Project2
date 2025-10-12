@@ -6,14 +6,29 @@
 #include <fstream>
 #include <iomanip>
 using namespace std;
-
+const int NUM_TESTS = 5;
+const int MAX_STUDENTS = 100;
 int readData(ifstream& inFile, string names[], double scores[][NUM_TESTS]);
 void calculateAverages(double scores[][NUM_TESTS], double averages[], int studentCount);
 char getLetterGrade(double average);
 void displayReport(const string names[], const double averages[], int studentCount);
 
 int main() {
-	
+	ifstream inFile("StudentGrades.txt");
+    if (!inFile) {
+        cerr << "Error opening file." << endl;
+        return 1;
+    }
+    const int MAX_STUDENTS = 100;
+    const int NUM_TESTS = 5;
+    string names[MAX_STUDENTS];
+    double scores[MAX_STUDENTS][NUM_TESTS];
+    double averages[MAX_STUDENTS];
+    int studentCount = readData(inFile, names, scores);
+    calculateAverages(scores, averages, studentCount);
+    displayReport(names, averages, studentCount);
+    inFile.close();
+	return 0;
 }
 
 int readData(ifstream& inFile, string names[], double scores[][NUM_TESTS]) {
@@ -28,7 +43,7 @@ int readData(ifstream& inFile, string names[], double scores[][NUM_TESTS]) {
     return count;
 }
 
-void calculateAverage(double scores[][NUM_TESTS], double averages[], int studentCount) {
+void calculateAverages(double scores[][NUM_TESTS], double averages[], int studentCount) {
     for (int i = 0; i < studentCount; i++) {
         double sum = 0;
         for (int j = 0; j < NUM_TESTS; j++) {
