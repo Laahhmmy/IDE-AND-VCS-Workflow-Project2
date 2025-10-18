@@ -6,14 +6,26 @@ using namespace std;
 int* ReverseArray(int const arr[], int size);
 void print(int const arr[], int size);
 int main() {
-	
+	const int SIZE = 10;
+	int numbers[SIZE] = { 1,2,3,4,5,6,7,8,9,10 };
+	cout << "Original array: \n";
+	print(numbers, SIZE);
+	int* reversedNumbers = ReverseArray(numbers, SIZE);
+	cout << "\nReversed array: \n";
+	print(reversedNumbers, SIZE);
+	delete[] reversedNumbers;
+	return 0;
 }
 int* ReverseArray(int const arr[], int size) {
 	int* reversedArr = new int[size];
-	for (int i = 0, i < size; i++) {
-		reversedArr[i] = arr[size - 1 - i]
+	for (int i = 0; i < size; i++) {
+		reversedArr[i] = arr[size - 1 - i];
 	}
-	return reversedArr
+	return reversedArr;
 }
 
-
+void print(int const arr[], int size) {
+	for (int i = 0; i < size; i++) {
+		cout << arr[i] << " ";
+	}
+}
