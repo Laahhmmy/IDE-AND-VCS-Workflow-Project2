@@ -2,14 +2,25 @@
 //
 
 #include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <string>
 using namespace std;
+
+struct student {
+	string name;
+	int id;
+	double scores;
+	double average;
+	char lettergrade;
+};
+student* getData(ifstream& file, int& studentCnt, int& testsCnt);
+void calcAverage(student students[], int studentCnt, int testsCnt);
+void printReport(const student students[], int studentCnt);
+char getLetterGrade(double avg);
+
 int main() {
-	char first, middle, last;
-	first = 'L';
-	middle = 'D';
-	last = 'A';
-	cout << first << middle << last << endl;
-	return 0;
+	
 }
 
 
