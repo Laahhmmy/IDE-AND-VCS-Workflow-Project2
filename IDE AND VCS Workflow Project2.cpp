@@ -3,13 +3,10 @@
 
 #include <iostream>
 using namespace std;
+int* ReverseArray(int const arr[], int size);
+void print(int const arr[], int size);
 int main() {
-	char first, middle, last;
-	first = 'L';
-	middle = 'D';
-	last = 'A';
-	cout << first << middle << last << endl;
-	return 0;
+	
 }
 
 
