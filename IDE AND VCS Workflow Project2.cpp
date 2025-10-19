@@ -1,5 +1,8 @@
 // IDE AND VCS Workflow Project2.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+// This program reads student data from a file, determines their id number, 
+// calculates their average scores, and letter grades,
+// and prints a formatted report to the console.
 
 #include <iostream>
 #include <fstream>
@@ -14,9 +17,18 @@ struct student {
 	double average;
 	char lettergrade;
 };
+// function getData reads student data from a file and returns an array of student structs
+// It also sets the number of students and tests via reference parameters.
 student* getData(ifstream& file, int& studentCnt, int& testsCnt);
+// function calcAverage calculates the average score and letter grade for each student
+// based on their test scores.
 void calcAverage(student students[], int studentCnt, int testsCnt);
+// function printReport prints a formatted report of student names,
+// IDs, averages, and letter grades to the console.
+// It takes a constant array of student structs and the number of students as parameters.
 void printReport(const student students[], int studentCnt);
+// function getLetterGrade returns the letter grade corresponding to a given average score.
+// It takes a double average as a parameter and returns a char letter grade.
 char getLetterGrade(double avg);
 
 int main() {
