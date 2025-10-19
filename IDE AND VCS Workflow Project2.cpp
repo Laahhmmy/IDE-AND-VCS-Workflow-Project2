@@ -1,9 +1,25 @@
 // IDE AND VCS Workflow Project2.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+// This program reverses an array of integers using dynamic memory allocation.
 
 #include <iostream>
 using namespace std;
+// Function ReverseArray creates a new array that is the reverse of the input array.
+// It returns a pointer to the newly created reversed array.
+// Parameters:
+//   arr - the original array to be reversed
+//  size - the number of elements in the array
+// Returns:
+//   A pointer to the newly created reversed array.
+// Preconditions: The array must have at least 'size' elements.
+// Postconditions: A new array is created in dynamic memory containing the elements of the original array in reverse order.
 int* ReverseArray(int const arr[], int size);
+// Function print displays the elements of the array.
+// Parameters:
+//   arr - the array to be printed
+//  size - the number of elements in the array
+// Preconditions: The array must have at least 'size' elements.
+// Postconditions: The elements of the array are printed to the console.
 void print(int const arr[], int size);
 int main() {
 	const int SIZE = 10;
