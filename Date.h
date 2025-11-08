@@ -13,12 +13,14 @@ public:
 	// Constructor
 	Date(int m = 1, int d = 1, int y = 1900);
 	void setDate(int m, int d, int y);
-	int getDay() const; 
-	int getMonth() const;
-	int getYear() const;
+	int getDay() const { return day; }
+	int getMonth() const { return month; }
+	int getYear() const { return year; }
 	bool isLeapYear() const;
 	bool isLeapYear(int y) const;
-	int lastDayOfMonth() const;
+	int lastDayOfMonth() const {
+		return lastDayOfMonth(month, year);
+	}
 	int lastDayOfMonth(int m, int y) const;
 	string printDate() const;
 	string printDateLong() const;

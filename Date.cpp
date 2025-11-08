@@ -25,23 +25,23 @@ Date::Date(int month, int day, int year) {
 void Date::setDate(int month, int day, int year) {
 	if (!isvalidDate(month, day, year)) {
 		cout << "Setting date to default 1/1/1900" << endl;
-		month = 1;
-		day = 1;
-		year = 1900;
+		this->month = 1;
+		this->day = 1;
+		this->year = 1900;
 	} else {
-		month = month;
-		day = day;
-		year = year;
+		this->month = month;
+		this->day = day;
+		this->year = year;
 	}
 }
 bool Date::isLeapYear() const {
 	return isLeapYear(year);
 }
-bool Date::isLeapYear(int year) {
+bool Date::isLeapYear(int year) const {
 	return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
-int Date:: lastDayOfMonth(int month, int year) {
+int Date:: lastDayOfMonth(int month, int year) const {
 	switch (month) {
 	case 1: case 3: case 5: case 7: case 8: case 10: case 12:
 		return 31;
