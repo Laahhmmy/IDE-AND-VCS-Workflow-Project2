@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <iostream>
 using namespace std;
-const double NumberArray::DEFAULT = 0.0;
+const double NumberArray::DEFAULT = 10000.0;
 NumberArray::NumberArray(int s) {
 	if (s <= 0) {
 		cout << "Invalid size, using default size " << MAX_SIZE << endl;
@@ -15,6 +15,13 @@ NumberArray::NumberArray(int s) {
 	}
 
 
+}
+NumberArray::NumberArray (const NumberArray& other) {
+	size = other.size;
+	num = new double[size];
+	for (int i = 0; i < size; i++) {
+		num[i] = other.num[i];
+	}
 }
 
 NumberArray::~NumberArray() {
@@ -36,12 +43,14 @@ double NumberArray::getNumber(int index) const {
 	}
 	return num[index];
 }
-double NumberArray::getNumber(int index) const {
-	if (index < 0 || index >= size) {
-		cout << "Index out of bounds. Valid range is 0 to " << size - 1 << endl;
-		return DEFAULT;
+double NumberArray::getLowest() const {
+	double lowest = num[0];
+	for (int i = 1; i < size; i++) {
+		if (num[i] < lowest) {
+			lowest = num[i];
+		}
 	}
-	return num[index];
+	return lowest;
 }
 
 double NumberArray::getHighest() const {
@@ -64,7 +73,7 @@ double NumberArray::getAverage() const {
 void NumberArray::print() const {
 	cout << fixed << setprecision(2);
 	for (int i = 0; i < size; i++) {
-		cout << num[i] << " " << endl;
+		cout << num[i] << " ";
 	}
 	cout << endl;
 }
