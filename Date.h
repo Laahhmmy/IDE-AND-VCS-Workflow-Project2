@@ -13,7 +13,7 @@ public:
 	// Constructor
 	Date(int m = 1, int d = 1, int y = 1900);
 	void setDate(int m, int d, int y);
-	int getDay() const;
+	int getDay() const; 
 	int getMonth() const;
 	int getYear() const;
 	bool isLeapYear() const;
