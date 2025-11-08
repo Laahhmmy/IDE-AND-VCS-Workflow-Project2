@@ -7,11 +7,11 @@
 using namespace std;
 
 int main() {
-	cout << "----- Test Constructors -----" << endl;
-	NumberArray array1;
-	cout << "From Default constructor: Array of size " << array1.getSize() << endl;
-	array1.print();
-	NumberArray array2(15);
+    cout << "----- Test Constructors -----" << endl;
+    NumberArray array1;
+    cout << "From Default constructor: Array of size " << array1.getSize() << endl;
+    array1.print();
+    NumberArray array2(15);
     cout << "From constructor with parameters: Array of size " << array2.getSize() << endl;
     array2.print();
 

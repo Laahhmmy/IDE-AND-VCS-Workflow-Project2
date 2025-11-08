@@ -11,18 +11,12 @@ NumberArray::NumberArray(int s) {
 	size = s;
 	num = new double[size];
 	for (int i = 0; i < size; i++) {
-		num[i] = DEFAULT;
+		num[i] = 0.0;
 	}
 
 
 }
-NumberArray::NumberArray (const NumberArray& other) {
-	size = other.size;
-	num = new double[size];
-	for (int i = 0; i < size; i++) {
-		num[i] = other.num[i];
-	}
-}
+
 
 NumberArray::~NumberArray() {
 	cout << "The destructor is running " << endl;
