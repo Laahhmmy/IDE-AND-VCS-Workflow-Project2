@@ -25,14 +25,19 @@ NumberArray::~NumberArray() {
 
 void NumberArray::setNumber(int index, double value) {
 	if (index < 0 || index >= size) {
-		cout << "Index out of bounds. Valid range is 0 to " << size - 1 << endl;
+		cout << "The index is out of the bounds of the array, number not stored." << endl;
 		return;
 	}
 	num[index] = value;
+
+}
+
+int NumberArray::getSize() const {
+	return size;
 }
 double NumberArray::getNumber(int index) const {
 	if (index < 0 || index >= size) {
-		cout << "Index out of bounds. Valid range is 0 to " << size - 1 << endl;
+		cout << "The index is out of the bounds of the array, number not stored" << endl;
 		return DEFAULT;
 	}
 	return num[index];
@@ -65,7 +70,7 @@ double NumberArray::getAverage() const {
 	return sum / size;
 }
 void NumberArray::print() const {
-	cout << fixed << setprecision(2);
+	cout << fixed << setprecision(1);
 	for (int i = 0; i < size; i++) {
 		cout << num[i] << " ";
 	}

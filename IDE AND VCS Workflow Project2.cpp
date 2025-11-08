@@ -17,7 +17,6 @@ int main() {
 
     cout << "----- Test mutator -----" << endl;
 
-    // Fill array with random floating-point numbers
     random_device rd;
     mt19937 gen(rd());
     uniform_real_distribution<> dist(1.0, 100.0);
