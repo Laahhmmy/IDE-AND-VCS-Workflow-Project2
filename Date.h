@@ -1,29 +1,29 @@
-#ifndef DATE_H
-#define DATE_H
+#ifndef DATE_H // Header guard
+#define DATE_H 
 #include <string>
 using namespace std;
 
-class Date {
+class Date { // Date class definition
 private:
-	int day;
+	int day; 
 	int month;
 	int year;
 	bool isvalidDate(int d, int m, int y);
-public:
+public: 
 	// Constructor
-	Date(int m = 1, int d = 1, int y = 1900);
-	void setDate(int m, int d, int y);
-	int getDay() const { return day; }
-	int getMonth() const { return month; }
+	Date(int m = 1, int d = 1, int y = 1900); // Default date is January 1, 1900
+	void setDate(int m, int d, int y); // Set date method
+	int getDay() const { return day; } // Getters
+	int getMonth() const { return month; } // Get month
 	int getYear() const { return year; }
-	bool isLeapYear() const;
-	bool isLeapYear(int y) const;
-	int lastDayOfMonth() const {
-		return lastDayOfMonth(month, year);
+	bool isLeapYear() const; // Check if current year is leap year
+	bool isLeapYear(int y) const; // Check if given year is leap year
+	int lastDayOfMonth() const { // Get last day of current month
+		return lastDayOfMonth(month, year); // Call overloaded method
 	}
-	int lastDayOfMonth(int m, int y) const;
-	string printDate() const;
-	string printDateLong() const;
-	string printOtherLong() const;
+	int lastDayOfMonth(int m, int y) const; // Get last day of given month and year
+	string printDate() const; // Print date in MM/DD/YYYY format
+	string printDateLong() const; // Print date in Month Day, Year format
+	string printOtherLong() const; // Print date in Day Month Year format
 };
 #endif // DATE_H
