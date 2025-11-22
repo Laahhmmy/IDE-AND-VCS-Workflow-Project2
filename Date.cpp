@@ -101,3 +101,48 @@ void Date::decrementDay() {
 		day = lastDayOfMonth(month, year);
 	}
 }
+ostream& operator<<(ostream& os, const Date& dt) {
+	os << dt.printDate();
+	return os;
+}
+istream& operator>>(istream& is, Date& dt) {
+	int m, d, y;
+	char slash1, slash2;
+
+	is >> m >> slash1 >> d >> slash2 >> y;
+
+	dt.setDate(m, d, y);
+	return is;
+}
+Date& Date::operator++() { // Prefix increment
+	incrementDay();
+	return *this;
+}
+Date Date::operator++(int) { // Postfix increment
+	Date temp = *this;
+	incrementDay();
+	return temp;
+}
+Date& Date::operator--() { // Prefix decrement
+	decrementDay();
+	return *this;
+}
+Date Date::operator--(int) { // Postfix decrement
+	Date temp = *this;
+	decrementDay();
+	return temp;
+}
+int Date::operator-(const Date& d) const {
+	auto toDays = [&](const Date& dt) {
+		int days = dt.year * 365 + dt.day;
+		for (int m = 1; m < dt.month; m++)
+			days += lastDayOfMonth(m, dt.year);
+
+		// Add leap days
+		days += dt.year / 4 - dt.year / 100 + dt.year / 400;
+
+		return days;
+		};
+
+	return toDays(*this) - toDays(d);
+}

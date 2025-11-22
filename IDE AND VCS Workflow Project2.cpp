@@ -8,33 +8,72 @@
 #include "Date.h"
 using namespace std;
 int main() {
-	cout << "Test Default Constructor: " << endl; // Current date should be displayed
-	Date date1;
-	cout << date1.printDate() << endl;
-	cout << "\nTest constructor with valid date: " << endl; // Valid date should be displayed
-	Date date2(2, 28, 2009);
-	cout << date2.printDate() << endl;
-	cout << "\nTest constructor with invalid date (45, 2, 2009): " << endl; // Invalid date should be handled
-	Date date3(45, 2, 2009);
-	cout << date3.printDate() << endl;
-	cout << "\nTest constructor with invalid day (2, 29, 2009): " << endl; // Invalid date should be handled
-	Date date4(2, 29, 2009);
-	cout << date4.printDate() << endl;
-	cout << "\nTest setDate with bad month (13, 10, 2020): " << endl; // Invalid date should be handled
-	date1.setDate(13, 10, 2020);
-	cout << date4.printDate() << endl;
-	cout << "\nTest setDate with bad day (4, 31, 2009): " << endl; // Invalid date should be handled
-	date4.setDate(4, 31, 2009);
-	cout << date4.printDate() << endl;
-	cout << "\nTest leap year with bad date (2, 29, 2009): " << endl; // Invalid date should be handled
-	date1.setDate(2, 29, 2009);
-	cout << date4.printDate() << endl;
-	cout << "\nTest leap year with good date (2, 29, 2012): " << endl; // Valid date should be displayed
-	date1.setDate(2, 29, 2012);
-	cout << date1.printDate() << endl;
-	cout << "\nTest the print formats: " << endl; // All formats should be displayed correctly
-	cout << date1.printDateLong() << endl;
-	cout << date1.printOtherLong() << endl;
+    // 1. Default constructor
+    Date d1;
+    cout << "Default date: " << d1.printDate() << endl;
+
+    // 2. Constructor with parameters
+    Date d2(4, 18, 2018);
+    cout << "Param date (long): " << d2.printDateLong() << endl;
+
+    // 3. Test setDate() using third format
+    d1.setDate(7, 4, 2020);
+    cout << "Set date (other long): " << d1.printOtherLong() << endl;
+
+    // 4. Invalid date 13/45/2018
+    d1.setDate(13, 45, 2018);
+
+    // 5. Invalid date April 31, 2000
+    d1.setDate(4, 31, 2000);
+
+    // 6. Invalid leap day (2009 is not leap)
+    d1.setDate(2, 29, 2009);
+
+    // 7. Test subtraction (should be 8)
+    d1.setDate(4, 10, 2014);
+    d2.setDate(4, 18, 2014);
+    cout << "Days apart: " << (d2 - d1) << endl;
+
+    // 8. Test subtraction (should be 815)
+    d1.setDate(2, 2, 2006);
+    d2.setDate(11, 10, 2003);
+    cout << "Days apart: " << (d1 - d2) << endl;
+
+    // 9. Test pre-increment and pre-decrement
+    d1.setDate(2, 29, 2008);
+    ++d1;
+    cout << "After ++d1: " << d1.printDate() << endl;
+    --d1;
+    cout << "After --d1: " << d1.printDate() << endl;
+
+    // 10. Test post-increment and post-decrement
+    d1++;
+    d1--;
+    cout << "After d1++ then d1--: " << d1.printDate() << endl;
+
+    // 11. Test rollover on post-increment
+    d1.setDate(12, 31, 2024);
+    d1++;
+    cout << "After 12/31/2024 d1++: " << d1.printDate() << endl;
+    d1--;
+    cout << "After d1--: " << d1.printDate() << endl;
+
+    // 12. Test rollover using pre-increment
+    d1.setDate(12, 31, 2024);
+    ++d1;
+    cout << "After ++d1: " << d1.printDate() << endl;
+    --d1;
+    cout << "After --d1: " << d1.printDate() << endl;
+
+    // 13. Input using >>
+    Date inputDate;
+    cout << "Enter a date (MM/DD/YYYY): ";
+    cin >> inputDate;
+
+    // 14. Output using <<
+    cout << "You entered: " << inputDate << endl;
+
+    return 0;
 }
 
 

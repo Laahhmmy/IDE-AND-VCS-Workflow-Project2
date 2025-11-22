@@ -1,6 +1,7 @@
 #ifndef DATE_H // Header guard
 #define DATE_H 
 #include <string>
+#include <iostream>
 using namespace std;
 
 class Date { // Date class definition
@@ -33,7 +34,7 @@ public:
 	Date operator--(int); // Postfix decrement operator
 	int operator-(const Date& d) const; // Subtract two dates to get difference in days
 	friend ostream& operator<<(ostream& os, const Date& dt); // Overload << operator for output
-	friend ostream& operator>>(ostream& os, Date& dt); // Overload >> operator for input
+	friend istream& operator>>(istream& is, Date& dt); // Overload >> operator for input
 };
 #endif // DATE_H
 
