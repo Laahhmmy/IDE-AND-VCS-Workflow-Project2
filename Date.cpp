@@ -70,3 +70,34 @@ string Date::printOtherLong() const { // Print date in Day Month Year format
 	oss << day << " " << monthNames[month - 1] << " " << year;
 	return oss.str();
 }
+void Date::incrementDay() {
+	int last = lastDayOfMonth(month, year); // Get last day of current month
+	if (day < last) { // If not last day of month, just increment day
+		day++;
+	}
+	else { // If last day of month, reset day and increment month/year as needed
+		day = 1;
+		if (month < 12) {
+			month++;
+		}
+		else {
+			month = 1;
+			year++;
+		}
+	}
+}
+void Date::decrementDay() {
+	if (day > 1) { // If not first day of month, just decrement day
+		day--;
+	}
+	else { // If first day of month, set day to last day of previous month and adjust month/year as needed
+		if (month > 1) {
+			month--;
+		}
+		else {
+			month = 12;
+			year--;
+		}
+		day = lastDayOfMonth(month, year);
+	}
+}
