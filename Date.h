@@ -36,5 +36,6 @@ public:
 	friend ostream& operator<<(ostream& os, const Date& dt); // Overload << operator for output
 	friend istream& operator>>(istream& is, Date& dt); // Overload >> operator for input
 };
+
 #endif // DATE_H
 
