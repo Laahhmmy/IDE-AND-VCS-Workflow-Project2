@@ -6,12 +6,21 @@
 #include "ParkingTicket.h"
 using namespace std;
 class PoliceOfficer {
-	private:
+private:
 	string name;
 	string badgeNumber;
 public:
-	PoliceOfficer(string nme, string badgeNum);
+	PoliceOfficer(string nme = " ", string badgeNum = " ")
+		: name(nme), badgeNumber(badgeNum) {
+	}
+	ParkingTicket* inspectCar(const ParkedCar& car, const ParkingMeter& meter) const {
+		int illegalMinutes = car.getMinutesParked() - meter.getMinutesPurchased();
+		if (illegalMinutes > 0) {
+			return new ParkingTicket(car, name, badgeNumber, illegalMinutes);
+		}
+		return nullptr;
+	}
+};
 
-	ParkingTicket inspectCar(const ParkedCar& car, const ParkingMeter& meter) const;
 
-
+#endif // POLICEOFFICER_H
