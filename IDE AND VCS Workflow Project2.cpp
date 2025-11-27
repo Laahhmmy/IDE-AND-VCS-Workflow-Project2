@@ -3,6 +3,8 @@
 // In this program, we will test the Date class by creating
 // Date objects using different constructors and methods,
 // and printing the results to verify correctness.
+// We will also test operator overloading for date arithmetic
+// and input/output operations.
 
 #include <iostream>
 #include "Date.h"
