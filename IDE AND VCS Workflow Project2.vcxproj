@@ -126,11 +126,13 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="IDE AND VCS Workflow Project2.cpp" />
     <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="Square.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicShape.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Square.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
