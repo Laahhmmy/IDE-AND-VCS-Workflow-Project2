@@ -4,11 +4,14 @@
 // This class represents a production worker, derived from Employee
 class ProductionWorker : public Employee
 {
+public:
+	class InvalidShift {};
+	class InvalidPayRate {};
 private:
 	int shift; // 1 for day shift, 2 for night shift
 	double hourlyPayRate; // hourly pay rate
 public:
-	ProductionWorker(string n = "", string num = "", string date = "", // default constructor
+	ProductionWorker(string n = "", int num = 0, string date = "", // default constructor
 		int s = 1, double rate = 0.0);
 	// accessor and mutator functions
 	int getShift() const;
