@@ -9,13 +9,16 @@ using namespace std;
 
 class Employee
 {
+public:
+	class InvalidEmployeeNumber {};
+
 private:
 	string name; // Employee's name
-	string employeeNumber; // Employee's number
+	int employeeNumber; // Employee's number
 	string hireDate; // Employee's hire date
 
 public:
-	Employee(string n = "", string num = "", string date = ""); // Constructor with default parameters
+	Employee(string n = "", int num = 0, string date = ""); // Constructor with default parameters
 	// Preconditions: n, num, and date are strings representing the employee's name, number, and hire date respectively.
 	// Postconditions: An Employee object is created with the provided details or default values if none are provided.
 
@@ -23,7 +26,7 @@ public:
 	string getName() const;
 	// Preconditions: None.
 	// Postconditions: Returns the name of the employee.
-	string getEmployeeNumber() const;
+	int getEmployeeNumber() const;
 	// Preconditions: None.
 	// Postconditions: Returns the employee number.
 	string getHireDate() const;
@@ -34,7 +37,7 @@ public:
 	void setName(string n);
 	// Preconditions: n is a string representing the employee's name.
 	// Postconditions: Sets the employee's name to n.
-	void setEmployeeNumber(string num);
+	void setEmployeeNumber(int num);
 	// Preconditions: num is a string representing the employee's number.
 	// Postconditions: Sets the employee's number to num.
 	void setHireDate(string date);
