@@ -9,7 +9,7 @@ private:
 	double requiredTrainingHours; // required training hours
 	double attendedTrainingHours; // attended training hours
 public:
-	TeamLeader(string n = "", string num = "", string date = "", // default constructor
+	TeamLeader(string n = "", int num = 0, string date = "", // default constructor
         int shift = 1, double rate = 0.0,
         double bonus = 0.0, int required = 0, int attended = 0);
 	// Precondition: None

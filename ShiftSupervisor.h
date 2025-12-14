@@ -8,7 +8,7 @@ private:
 	double annualSalary; // Annual salary of the shift supervisor
 	double productionBonus; // Production bonus for the shift supervisor
 public:
-	ShiftSupervisor(string n = "", string num = "", string date = "", // Constructor
+	ShiftSupervisor(string n = "", int num = 0, string date = "", // Constructor
 		double salary = 0.0, double bonus = 0.0);
 	// Precondition: None
 	// Postcondition: Sets the annual salary and production bonus of the shift supervisor

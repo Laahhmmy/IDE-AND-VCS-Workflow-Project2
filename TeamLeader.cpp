@@ -2,22 +2,39 @@
 #include <iostream>
 using namespace std;
 
-TeamLeader::TeamLeader(string n, string numb, string date,
+TeamLeader::TeamLeader(string n, int numb, string date,
     int shift, double rate,
     double bonus, int required, int attended)
-    : ProductionWorker(n, numb, date, shift, rate),
-    monthlyBonus(bonus),
-    requiredTrainingHours(required),
-    attendedTrainingHours(attended) {
+    : ProductionWorker(n, numb, date, shift, rate)
+{
+    monthlyBonus = bonus;
+    requiredTrainingHours = required;
+    attendedTrainingHours = attended;
 }
 
-double TeamLeader::getMonthlyBonus() const { return monthlyBonus; }
-int TeamLeader::getRequiredTrainingHours() const { return requiredTrainingHours; }
-int TeamLeader::getAttendedTrainingHours() const { return attendedTrainingHours; }
+double TeamLeader::getMonthlyBonus() const {
+    return monthlyBonus;
+}
 
-void TeamLeader::setMonthlyBonus(double b) { monthlyBonus = b; }
-void TeamLeader::setRequiredTrainingHours(int r) { requiredTrainingHours = r; }
-void TeamLeader::setAttendedTrainingHours(int a) { attendedTrainingHours = a; }
+int TeamLeader::getRequiredTrainingHours() const {
+    return requiredTrainingHours;
+}
+
+int TeamLeader::getAttendedTrainingHours() const {
+    return attendedTrainingHours;
+}
+
+void TeamLeader::setMonthlyBonus(double b) {
+    monthlyBonus = b;
+}
+
+void TeamLeader::setRequiredTrainingHours(int r) {
+    requiredTrainingHours = r;
+}
+
+void TeamLeader::setAttendedTrainingHours(int a) {
+    attendedTrainingHours = a;
+}
 
 void TeamLeader::printTeamLeader() const {
     printProductionWorker();
