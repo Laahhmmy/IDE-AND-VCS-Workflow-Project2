@@ -1,8 +1,8 @@
 // IDE AND VCS Workflow Project2.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-// This program demonstrates the use of classes to represent different types of employees in a company.
-// It creates instances of ProductionWorker, ShiftSupervisor, and TeamLeader classes,
-// sets their attributes, and prints their details to the console.
+// This program demonstrates the use of classes to manage employee records for Production Workers, Shift Supervisors, and Team Leaders.
+// It allows users to create and display records for each type of employee interactively.
+
 
 #include <iostream>
 #include "ProductionWorker.h"
