@@ -11,7 +11,7 @@
 using namespace std;
 
 // Function to create a ProductionWorker interactively
-void createProductionWorker() {
+void createProductionWorker() { 
     string name, hireDate;
     int empNum, shift;
     double rate;
@@ -19,7 +19,7 @@ void createProductionWorker() {
 
     cin.ignore(); // Clear input buffer
 
-    cout << "Enter Production Worker's name: ";
+    cout << "Enter Production Worker's name: "; 
     getline(cin, name);
     worker.setName(name);
 
