@@ -124,7 +124,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="IDE AND VCS Workflow Project2.cpp" />
-    <ClCompile Include="NumberArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NumberArray.h" />
